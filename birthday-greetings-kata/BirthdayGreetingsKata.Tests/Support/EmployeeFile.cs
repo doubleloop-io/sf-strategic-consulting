@@ -1,0 +1,14 @@
+namespace BirthdayGreetingsKata.Tests.Support
+{
+    public static class EmployeeFile
+    {
+        public static void File(string fileName, params string[] lines) =>
+            System.IO.File.WriteAllLines(fileName, lines);
+
+        public static string Employee(string name, string date, string email) =>
+            $"Ann, {name}, {date}, {email}";
+
+        public static string Header() =>
+            "last_name, first_name, date_of_birth, email";
+    }
+}
