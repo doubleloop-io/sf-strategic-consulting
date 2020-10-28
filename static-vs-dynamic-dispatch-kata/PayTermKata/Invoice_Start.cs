@@ -31,6 +31,8 @@ namespace StaticVsDynamicDispatchKata.PayTermKata
                 case "n":
                     result = date.AddDays(90).Date;
                     break;
+                default:
+                    throw new InvalidOperationException();
             }
             return result;
         }

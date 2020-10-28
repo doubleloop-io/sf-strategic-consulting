@@ -1,12 +1,14 @@
 using System;
 
-namespace StaticVsDynamicDispatchKata.DateOfBirthKata
+namespace StaticVsDynamicDispatchKata.DateOfBirthKata.Solutions
 {
+    // NOTE: Common abstraction enables composition
     public interface IDateOfBirth
     {
         bool IsBirthday(DateTime today);
     }
 
+    // NOTE: just an abstraction reification
     public class CommonYear : IDateOfBirth
     {
         readonly int month;
@@ -25,11 +27,12 @@ namespace StaticVsDynamicDispatchKata.DateOfBirthKata
             today.Month == month && today.Day == day;
     }
 
+    // NOTE: another abstraction reification as decorator
     public class LeapYear : IDateOfBirth
     {
-        readonly CommonYear inner;
+        readonly IDateOfBirth inner;
 
-        public LeapYear(CommonYear inner) =>
+        public LeapYear(IDateOfBirth inner) =>
             this.inner = inner;
 
         public bool IsBirthday(DateTime today) =>

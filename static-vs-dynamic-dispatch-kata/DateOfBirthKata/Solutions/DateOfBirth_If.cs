@@ -1,6 +1,6 @@
 using System;
 
-namespace StaticVsDynamicDispatchKata.DateOfBirthKata
+namespace StaticVsDynamicDispatchKata.DateOfBirthKata.Solutions
 {
     public sealed class DateOfBirth_If
     {
