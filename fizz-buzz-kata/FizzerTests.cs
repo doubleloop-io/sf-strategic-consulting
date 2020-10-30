@@ -13,7 +13,7 @@ namespace FizzBuzzKata
         {
             var fizzer = new Fizzer();
 
-            var result = fizzer.Convert(value);
+            var result = fizzer.ToWord(value);
 
             Assert.Equal("Fizz", result);
         }
@@ -26,33 +26,46 @@ namespace FizzBuzzKata
         {
             var fizzer = new Fizzer();
 
-            var result = fizzer.Convert(value);
+            var result = fizzer.ToWord(value);
 
             Assert.Equal("Buzz", result);
         }
 
         [Theory]
-        [InlineData(5 * 3)]
-        [InlineData(5 * 3 * 2)]
-        public void ConvertDivisibleByThreeAndFive(Int32 value)
+        [InlineData(7)]
+        [InlineData(7 * 2)]
+        public void ConvertDivisibleBySeven(Int32 value)
         {
             var fizzer = new Fizzer();
 
-            var result = fizzer.Convert(value);
+            var result = fizzer.ToWord(value);
 
-            Assert.Equal("FizzBuzz", result);
+            Assert.Equal("Yo", result);
+        }
+
+        [Theory]
+        [InlineData(5 * 3, "FizzBuzz")]
+        [InlineData(5 * 3 * 2, "FizzBuzz")]
+        [InlineData(5 * 7, "BuzzYo")]
+        public void ConvertDivisibleByMultipleDivisors(Int32 value, string expected)
+        {
+            var fizzer = new Fizzer();
+
+            var result = fizzer.ToWord(value);
+
+            Assert.Equal(expected, result);
         }
 
         [Theory]
         [InlineData(1)]
         [InlineData(2)]
         [InlineData(2 * 2)]
-        [InlineData(7)]
+        [InlineData(11)]
         public void ConvertNotDivisible(Int32 value)
         {
             var fizzer = new Fizzer();
 
-            var result = fizzer.Convert(value);
+            var result = fizzer.ToWord(value);
 
             Assert.Equal(value.ToString(), result);
         }
@@ -70,14 +83,14 @@ Fizz
 4
 Buzz
 Fizz
-7
+Yo
 8
 Fizz
 Buzz
 11
 Fizz
 13
-14
+Yo
 FizzBuzz
 16
 17

@@ -17,7 +17,7 @@ namespace FizzBuzzKata.Solutions
 
         public IList<string> WordsFor(int number) =>
             rules
-                .Select(x => number % x.Divisor == 0 ? x.Word : String.Empty)
+                .Select(x => x.WordFor(number))
                 .ToList();
     }
 }

@@ -13,5 +13,8 @@ namespace FizzBuzzKata.Solutions
 
         public static Rule From((int, string) value) =>
             new Rule(value.Item1, value.Item2);
+
+        public string WordFor(int number) =>
+            number % Divisor == 0 ? Word : string.Empty;
     }
 }

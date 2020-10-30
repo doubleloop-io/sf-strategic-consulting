@@ -10,16 +10,4 @@
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.3" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Compile Remove="Solutions\**" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Remove="Solutions\**" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Remove="Solutions\**" />
-  </ItemGroup>
-
 </Project>

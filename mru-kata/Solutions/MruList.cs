@@ -25,7 +25,7 @@ namespace MruKata.Solutions
                 values.RemoveAt(values.Count - 1);
         }
 
-        public IList<string> Tracked()=>
+        public IEnumerable<string> Tracked()=>
             new List<string>(values);
     }
 }

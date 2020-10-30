@@ -3,13 +3,28 @@ using Xunit;
 
 namespace MruKata.Solutions
 {
+    // TrackLastOpenFilesTest
+    // extract -> MruList
+
+    // MruList
+    // MruListTest -> TrackLastOpenFilesTests
+    // delete MruListTest
+    // inline MruList -> TrackLastOpenFiles
+
     public class MruListTests
     {
         [Fact]
         public void trackOneFile()
         {
+            // TEST ESERCITANO
+            // IL COMPORTAMENTO (WHAT)
+            // SENZA ACCOPPIARI
+            // ALL'IMPLEMENTAZIONE
+            // INTERNA (HOW)
             var list = new MruList(100);
+            // Command
             list.Track("foo");
+            // Query
             var result = list.Tracked();
             Assert.Equal(new[] {"foo"}, result);
         }

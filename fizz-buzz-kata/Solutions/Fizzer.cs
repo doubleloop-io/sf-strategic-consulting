@@ -1,10 +1,13 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace FizzBuzzKata.Solutions
 {
+    // FizzerTests 100%
+    // Fizzer
+    // =>
+    // Fizzer + Rules + Rule (+ Tuple)
     public class Fizzer
     {
         readonly Rules rules;
