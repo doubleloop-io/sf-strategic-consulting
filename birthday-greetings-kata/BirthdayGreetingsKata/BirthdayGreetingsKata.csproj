@@ -4,4 +4,16 @@
         <TargetFramework>netcoreapp3.1</TargetFramework>
     </PropertyGroup>
 
+    <ItemGroup>
+      <Compile Remove="Solutions\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Remove="Solutions\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="Solutions\**" />
+    </ItemGroup>
+
 </Project>

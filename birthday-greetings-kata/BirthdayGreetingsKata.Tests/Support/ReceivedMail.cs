@@ -6,11 +6,6 @@ namespace BirthdayGreetingsKata.Tests.Support
 {
     public class ReceivedMail
     {
-        public string FromAddress { get; }
-        public string ToAddress { get; }
-        public string Subject { get; }
-        public string Body { get; }
-
         public ReceivedMail(string fromAddress, string toAddress, string subject, string body)
         {
             FromAddress = fromAddress;
@@ -18,6 +13,11 @@ namespace BirthdayGreetingsKata.Tests.Support
             Subject = subject;
             Body = body;
         }
+
+        public string FromAddress { get; }
+        public string ToAddress { get; }
+        public string Subject { get; }
+        public string Body { get; }
 
         public override string ToString() =>
             $"{nameof(FromAddress)}: {FromAddress}, {nameof(ToAddress)}: {ToAddress}, {nameof(Subject)}: {Subject}, {nameof(Body)}: {Body}";
@@ -29,7 +29,7 @@ namespace BirthdayGreetingsKata.Tests.Support
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            if (obj.GetType() != this.GetType()) return false;
+            if (obj.GetType() != GetType()) return false;
             return Equals((ReceivedMail) obj);
         }
 

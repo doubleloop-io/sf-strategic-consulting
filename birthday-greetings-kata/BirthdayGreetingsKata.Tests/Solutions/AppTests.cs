@@ -6,7 +6,7 @@ using netDumbster.smtp;
 using Xunit;
 using static BirthdayGreetingsKata.Tests.Support.EmployeeFile;
 
-namespace BirthdayGreetingsKata.Tests
+namespace BirthdayGreetingsKata.Tests.Solutions
 {
     public class AppTests : IDisposable
     {
@@ -14,14 +14,14 @@ namespace BirthdayGreetingsKata.Tests
 
         readonly FileConfiguration fileConfiguration = new FileConfiguration
         {
-            FilePath = $"employees-{nameof(AppTests)}.txt"
+            FilePath = $"employees-{nameof(AppTests)}-solutions.txt"
         };
 
         readonly SmtpConfiguration smtpConfiguration = new SmtpConfiguration
         {
             Sender = "foo@bar.com",
             Host = "localhost",
-            Port = 8000
+            Port = 8001
         };
 
         readonly SimpleSmtpServer smtpServer;
@@ -34,33 +34,6 @@ namespace BirthdayGreetingsKata.Tests
 
         public void Dispose() =>
             smtpServer.Dispose();
-
-        [Fact]
-        public async Task SendOneGreetingWhenOneBirthday()
-        {
-            File(fileConfiguration.FilePath, Header(), Employee("Mary", "1975/09/11", "mary.ann@foobar.com"));
-
-            await app.Run(Date("11/09/2020"));
-
-            var received = Assert.Single(ReceivedMail.FromAll(smtpServer));
-            Assert.Equal(
-                new ReceivedMail(
-                    smtpConfiguration.Sender,
-                    "mary.ann@foobar.com",
-                    "Happy birthday!",
-                    "Happy birthday, dear Mary!"),
-                received);
-        }
-
-        [Fact]
-        public async Task NoSendsGreetingWhenNoBirthdays()
-        {
-            File(fileConfiguration.FilePath, Header(), Employee("Mary", "1982/11/08", "mary.ann@foobar.com"));
-
-            await app.Run(Date("11/09/2020"));
-
-            Assert.Empty(ReceivedMail.FromAll(smtpServer));
-        }
 
         [Fact]
         public async Task SendManyGreetingsWhenManyBirthdays()

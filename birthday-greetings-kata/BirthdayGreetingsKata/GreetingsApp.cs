@@ -33,13 +33,11 @@ namespace BirthdayGreetingsKata
 
                 var dateOfBirth = DateTime.Parse(parts[2]);
                 if (today.Month == dateOfBirth.Month && today.Day == dateOfBirth.Day)
-                {
                     await smtpClient.SendMailAsync(
                         smtpConfiguration.Sender,
                         parts[3],
                         "Happy birthday!",
                         $"Happy birthday, dear {parts[1]}!");
-                }
             }
         }
     }
