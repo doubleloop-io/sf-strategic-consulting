@@ -1,19 +1,21 @@
 using System;
+using StaticVsDynamicDispatchKata.DateOfBirthKata.Solutions;
 
 namespace StaticVsDynamicDispatchKata.DateOfBirthKata
 {
+    // Extract class => Primitive Obsession
     public class Employee
     {
         readonly string name;
-        readonly DateTime dateOfBirth;
+        readonly IDateOfBirth dateOfBirth;
 
         public Employee(string name, DateTime dateOfBirth)
         {
             this.name = name;
-            this.dateOfBirth = dateOfBirth;
+            this.dateOfBirth = DateOfBirth_Composition.From(dateOfBirth);
         }
 
         public bool IsBirthday(DateTime today) =>
-            today.Month == dateOfBirth.Month && today.Day == dateOfBirth.Day;
+            dateOfBirth.IsBirthday(today);
     }
 }

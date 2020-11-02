@@ -18,16 +18,4 @@
       <ProjectReference Include="..\BirthdayGreetingsKata\BirthdayGreetingsKata.csproj" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Compile Remove="Solutions\**" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <EmbeddedResource Remove="Solutions\**" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <None Remove="Solutions\**" />
-    </ItemGroup>
-
 </Project>

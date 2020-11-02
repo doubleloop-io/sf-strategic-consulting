@@ -19,21 +19,21 @@ namespace StaticVsDynamicDispatchKata.DateOfBirthKata
             Assert.False(employee.IsBirthday(new DateTime(2020, 1, 18)));
         }
 
-        [Fact(Skip = "TODO")]
+        [Fact]
         public void BornOnLeapYearAndTodayIsBirthdayOnCommonYear()
         {
             var employee = new Employee("any", new DateTime(1996, 2, 29));
             Assert.True(employee.IsBirthday(new DateTime(2019, 2, 28)));
         }
 
-        [Fact(Skip = "TODO")]
+        [Fact]
         public void BornOnLeapYearAndTodayIsBirthdayOnLeapYear()
         {
             var employee = new Employee("any", new DateTime(1996, 2, 29));
             Assert.True(employee.IsBirthday(new DateTime(2020, 2, 29)));
         }
 
-        [Fact(Skip = "TODO")]
+        [Fact]
         public void BornOnLeapYearAndTodayIsNotBirthdayOnLeapYear()
         {
             var employee = new Employee("any", new DateTime(1996, 2, 29));

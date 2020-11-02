@@ -1,4 +1,5 @@
 using System;
+using StaticVsDynamicDispatchKata.PayTermKata.Solutions;
 
 namespace StaticVsDynamicDispatchKata.PayTermKata
 {
@@ -6,46 +7,17 @@ namespace StaticVsDynamicDispatchKata.PayTermKata
     {
         //... a lot of other fields
         readonly DateTimeOffset date;
-        readonly string term;
-        readonly bool isAtEndOfMonth;
+        readonly IPayTerm payTerm;
 
         public Invoice_EndOfMonth(DateTimeOffset date, string term, bool isAtEndOfMonth)
         {
-            if (String.IsNullOrWhiteSpace(term))
-                throw new InvalidTermException();
-
             this.date = date;
-            this.term = term;
-            this.isAtEndOfMonth = isAtEndOfMonth;
+            payTerm = PayTerm_Composition.ParseData(term, isAtEndOfMonth);
         }
 
         public DateTimeOffset ExpireDate()
         {
-            DateTimeOffset result;
-            switch (term)
-            {
-                case "d":
-                    result = date;
-                    break;
-                case "t":
-                    result = date.AddDays(30).Date;
-                    break;
-                case "s":
-                    result = date.AddDays(60).Date;
-                    break;
-                case "n":
-                    result = date.AddDays(90).Date;
-                    break;
-                default:
-                    throw new InvalidOperationException();
-            }
-            if (isAtEndOfMonth)
-            {
-                var daysInMonth = DateTime.DaysInMonth(result.Year, result.Month);
-                var daysToAdd = daysInMonth - result.Day;
-                result = result.AddDays(daysToAdd).Date;
-            }
-            return result;
+            return payTerm.ComputePayDate(date);
         }
     }
 }

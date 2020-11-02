@@ -13,19 +13,4 @@
         <PackageReference Include="coverlet.collector" Version="1.2.0" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Compile Remove="DateOfBirthKata\Solutions\**" />
-      <Compile Remove="PayTermKata\Solutions\**" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <EmbeddedResource Remove="DateOfBirthKata\Solutions\**" />
-      <EmbeddedResource Remove="PayTermKata\Solutions\**" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <None Remove="DateOfBirthKata\Solutions\**" />
-      <None Remove="PayTermKata\Solutions\**" />
-    </ItemGroup>
-
 </Project>

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net.Mail;
@@ -21,6 +22,7 @@ namespace BirthdayGreetingsKata
         {
             using var smtpClient = new SmtpClient(smtpConfiguration.Host, smtpConfiguration.Port);
             var lines = await File.ReadAllLinesAsync(fileConfiguration.FilePath);
+            var loadedEmployees = new List<EmployeeInfo>();
             for (var i = 0; i < lines.Length; i++)
             {
                 if (i == 0) continue;
@@ -31,14 +33,18 @@ namespace BirthdayGreetingsKata
                     .Select(x => x.Trim())
                     .ToList();
 
-                var dateOfBirth = DateTime.Parse(parts[2]);
-                if (today.Month == dateOfBirth.Month && today.Day == dateOfBirth.Day)
-                    await smtpClient.SendMailAsync(
-                        smtpConfiguration.Sender,
-                        parts[3],
-                        "Happy birthday!",
-                        $"Happy birthday, dear {parts[1]}!");
+                var employee = new EmployeeInfo(parts[1], parts[3], new BornOn(DateTime.Parse(parts[2])));
+                loadedEmployees.Add(employee);
             }
+
+            var birthdays = new IsBirthdayFilter(loadedEmployees).Apply(today);
+
+            foreach (var birthday in birthdays)
+                await smtpClient.SendMailAsync(
+                    smtpConfiguration.Sender,
+                    birthday.Email,
+                    "Happy birthday!",
+                    $"Happy birthday, dear {birthday.Name}!");
         }
     }
 }

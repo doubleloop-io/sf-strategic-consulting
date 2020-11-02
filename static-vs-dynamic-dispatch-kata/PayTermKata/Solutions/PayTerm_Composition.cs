@@ -40,11 +40,11 @@ namespace StaticVsDynamicDispatchKata.PayTermKata.Solutions
     }
 
     // NOTE: another abstraction reification as composite pattern
-    public class CompositePayTerms : IPayTerm
+    public class AndPayTerms : IPayTerm
     {
         readonly IPayTerm[] terms;
 
-        public CompositePayTerms(params IPayTerm[] terms) =>
+        public AndPayTerms(params IPayTerm[] terms) =>
             this.terms = terms ?? new IPayTerm[0];
 
         public DateTimeOffset ComputePayDate(DateTimeOffset date) =>
@@ -64,7 +64,7 @@ namespace StaticVsDynamicDispatchKata.PayTermKata.Solutions
 
             var baseTerm = Parse(term);
             var shiftToEndOfMonth = isAtEndOfMonth ? (IPayTerm) new ShiftToEndOfMonth() : new SameDate();
-            return new CompositePayTerms(baseTerm, shiftToEndOfMonth);
+            return new AndPayTerms(baseTerm, shiftToEndOfMonth);
         }
 
         static IPayTerm Parse(string term) =>

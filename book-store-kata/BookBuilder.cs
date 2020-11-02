@@ -18,6 +18,9 @@ namespace BookStore
         public static BookBuilder TravelBook() =>
             new BookBuilder(BookType.TRAVEL);
 
+        public static BookBuilder FantasyBook() =>
+            new BookBuilder(BookType.FANTASY);
+
         public BookBuilder Costing(decimal price) {
             this.price = price;
             return this;

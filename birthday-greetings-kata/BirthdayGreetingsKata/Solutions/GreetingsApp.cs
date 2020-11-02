@@ -22,6 +22,7 @@ namespace BirthdayGreetingsKata.Solutions
         public Task RunOnToday() =>
             Run(DateTime.Today);
 
-        public async Task Run(DateTime today) => await birthdayService.SendGreetings(today);
+        public async Task Run(DateTime today) =>
+            await birthdayService.SendGreetings(today);
     }
 }
