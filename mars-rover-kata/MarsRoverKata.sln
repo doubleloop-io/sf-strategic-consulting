@@ -4,6 +4,18 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarsRoverKata", "MarsRoverK
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarsRoverKata.Tests", "MarsRoverKata.Tests\MarsRoverKata.Tests.csproj", "{C771D3E0-441B-4F03-B3F4-F6383506179E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarsRoverKata.HttpHost", "MarsRoverKata.HttpHost\MarsRoverKata.HttpHost.csproj", "{A99CF78A-4F35-4EDE-8903-2661B8B4B629}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarsRoverKata.HttpHost.Tests", "MarsRoverKata.HttpHost.Tests\MarsRoverKata.HttpHost.Tests.csproj", "{8FFA5350-CC19-4D5C-8650-A492688DDBCE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarsRoverKata.AspNetHost", "MarsRoverKata.AspNetHost\MarsRoverKata.AspNetHost.csproj", "{160CE9BF-115E-4A9B-A729-9A9D50694B56}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarsRoverKata.AspNetHost.Tests", "MarsRoverKata.AspNetHost.Tests\MarsRoverKata.AspNetHost.Tests.csproj", "{1155E0DE-E764-44BA-B8B2-574FE1E4F25F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarsRoverKata.RabbitHost", "MarsRoverKata.RabbitHost\MarsRoverKata.RabbitHost.csproj", "{1A1452D2-8A91-4F1D-8679-08B2344E6867}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarsRoverKata.RabbitHost.Tests", "MarsRoverKata.RabbitHost.Tests\MarsRoverKata.RabbitHost.Tests.csproj", "{AA481EF1-211F-45E6-AC69-0E63B0A1F872}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +30,29 @@ Global
 		{C771D3E0-441B-4F03-B3F4-F6383506179E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C771D3E0-441B-4F03-B3F4-F6383506179E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C771D3E0-441B-4F03-B3F4-F6383506179E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A99CF78A-4F35-4EDE-8903-2661B8B4B629}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A99CF78A-4F35-4EDE-8903-2661B8B4B629}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A99CF78A-4F35-4EDE-8903-2661B8B4B629}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A99CF78A-4F35-4EDE-8903-2661B8B4B629}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8FFA5350-CC19-4D5C-8650-A492688DDBCE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8FFA5350-CC19-4D5C-8650-A492688DDBCE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8FFA5350-CC19-4D5C-8650-A492688DDBCE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8FFA5350-CC19-4D5C-8650-A492688DDBCE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{160CE9BF-115E-4A9B-A729-9A9D50694B56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{160CE9BF-115E-4A9B-A729-9A9D50694B56}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{160CE9BF-115E-4A9B-A729-9A9D50694B56}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{160CE9BF-115E-4A9B-A729-9A9D50694B56}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1155E0DE-E764-44BA-B8B2-574FE1E4F25F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1155E0DE-E764-44BA-B8B2-574FE1E4F25F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1155E0DE-E764-44BA-B8B2-574FE1E4F25F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1155E0DE-E764-44BA-B8B2-574FE1E4F25F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A1452D2-8A91-4F1D-8679-08B2344E6867}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A1452D2-8A91-4F1D-8679-08B2344E6867}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A1452D2-8A91-4F1D-8679-08B2344E6867}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A1452D2-8A91-4F1D-8679-08B2344E6867}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA481EF1-211F-45E6-AC69-0E63B0A1F872}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA481EF1-211F-45E6-AC69-0E63B0A1F872}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA481EF1-211F-45E6-AC69-0E63B0A1F872}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA481EF1-211F-45E6-AC69-0E63B0A1F872}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -37,14 +37,8 @@ namespace BirthdayGreetingsKata
                 loadedEmployees.Add(employee);
             }
 
-            var birthdays = new IsBirthdayFilter(loadedEmployees).Apply(today);
-
-            foreach (var birthday in birthdays)
-                await smtpClient.SendMailAsync(
-                    smtpConfiguration.Sender,
-                    birthday.Email,
-                    "Happy birthday!",
-                    $"Happy birthday, dear {birthday.Name}!");
+            var controller = new BirthdayController(new SmtpGreetingsAdapter(smtpConfiguration, smtpClient));
+            await controller.SendGreetings(today, loadedEmployees);
         }
     }
 }

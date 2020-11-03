@@ -22,7 +22,7 @@ namespace BirthdayGreetingsKata.Tests.Solutions
 
             await service.SendGreetings(new DateTime(2020, 11, 09));
 
-            Assert.Equal(new[] {emailInfo}, greetingsNotification.Emails);
+            Assert.Equal(new[] {emailInfo}, greetingsNotification.ReceivedEmails);
         }
 
         [Fact]
@@ -40,7 +40,7 @@ namespace BirthdayGreetingsKata.Tests.Solutions
 
             await service.SendGreetings(new DateTime(2020, 12, 25));
 
-            Assert.Empty(greetingsNotification.Emails);
+            Assert.Empty(greetingsNotification.ReceivedEmails);
         }
 
         [Fact]
@@ -58,7 +58,7 @@ namespace BirthdayGreetingsKata.Tests.Solutions
 
             await service.SendGreetings(new DateTime(2020, 11, 08));
 
-            Assert.Equal(new[] {matteo, mary}, greetingsNotification.Emails);
+            Assert.Equal(new[] {matteo, mary}, greetingsNotification.ReceivedEmails);
         }
     }
 }

@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace BirthdayGreetingsKata.Solutions
 {
-    public static class EmployeeFileParser
+    public static class TextFileToEmployeeParser
     {
         const string HEADER = "last_name, first_name, date_of_birth, email";
 

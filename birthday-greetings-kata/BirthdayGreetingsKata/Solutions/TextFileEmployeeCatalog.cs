@@ -11,10 +11,11 @@ namespace BirthdayGreetingsKata.Solutions
         public TextFileEmployeeCatalog(FileConfiguration configuration) =>
             this.configuration = configuration;
 
+        // TextFile -> Employees
         public async Task<IList<Employee>> Load()
         {
             var lines = await LoadLinesOrDefault();
-            return EmployeeFileParser.ParseLines(lines);
+            return TextFileToEmployeeParser.ParseLines(lines);
         }
 
         async Task<string[]> LoadLinesOrDefault()
@@ -28,5 +29,11 @@ namespace BirthdayGreetingsKata.Solutions
                 return new string[0];
             }
         }
+    }
+
+    public class MongoDbCatalog : IEmployeeCatalog
+    {
+        // BsonDocuments -> Employees
+        public Task<IList<Employee>> Load() => throw new System.NotImplementedException();
     }
 }

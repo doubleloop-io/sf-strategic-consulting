@@ -25,6 +25,9 @@ namespace MarsRoverKata.AspNetHost.Tests
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
 
+            // factory.Services.Remove<IRoverService>()
+            // factory.Services.AddSingleton<IRoverService>(this)
+
             var response = await client.PostAsJsonAsync("rover", new
             {
                 Commands = "FFLB"
@@ -32,7 +35,7 @@ namespace MarsRoverKata.AspNetHost.Tests
             response.EnsureSuccessStatusCode();
             var result = await response.Content.ReadAsStringAsync();
 
-            JsonAssert.Equal(@"{""result"": ""1,0:N""}", result);
+            JsonAssert.Equal(@"{""result"": ""2,3:N:O""}", result);
         }
     }
 }

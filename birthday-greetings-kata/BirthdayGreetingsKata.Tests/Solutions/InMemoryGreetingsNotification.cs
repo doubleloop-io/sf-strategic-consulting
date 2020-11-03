@@ -6,11 +6,11 @@ namespace BirthdayGreetingsKata.Tests.Solutions
 {
     public class InMemoryGreetingsNotification : IGreetingsNotification
     {
-        public List<EmailInfo> Emails { get; }
+        public List<EmailInfo> ReceivedEmails { get; }
 
         public InMemoryGreetingsNotification()
         {
-            Emails = new List<EmailInfo>();
+            ReceivedEmails = new List<EmailInfo>();
         }
 
         public void Dispose()
@@ -19,7 +19,7 @@ namespace BirthdayGreetingsKata.Tests.Solutions
 
         public Task SendBirthday(IList<EmailInfo> infos)
         {
-            Emails.AddRange(infos);
+            ReceivedEmails.AddRange(infos);
             return Task.CompletedTask;
         }
     }

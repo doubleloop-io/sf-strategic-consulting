@@ -13,7 +13,7 @@ namespace BirthdayGreetingsKata.Tests.Solutions
             public void ValidLine()
             {
                 var line = Employee("test", "2020/10/28", "a@a.it");
-                var employee = EmployeeFileParser.ParseLine(line);
+                var employee = TextFileToEmployeeParser.ParseLine(line);
 
                 Assert.Equal(new Employee(new DateOfBirth(10, 28), new EmailInfo("test", "a@a.it")), employee);
             }
@@ -22,21 +22,21 @@ namespace BirthdayGreetingsKata.Tests.Solutions
             public void EmptyLine()
             {
                 var line = string.Empty;
-                Assert.Throws<MalformedLineException>(() => EmployeeFileParser.ParseLine(line));
+                Assert.Throws<MalformedLineException>(() => TextFileToEmployeeParser.ParseLine(line));
             }
 
             [Fact]
             public void LineWithWrongSeparator()
             {
                 var line = WrongSeparator("test", "2020/10/28", "a@a.it");
-                Assert.Throws<MalformedLineException>(() => EmployeeFileParser.ParseLine(line));
+                Assert.Throws<MalformedLineException>(() => TextFileToEmployeeParser.ParseLine(line));
             }
 
             [Fact]
             public void MissingSomeData()
             {
                 var line = MissingName("2020/10/28", "a@a.it");
-                Assert.Throws<MalformedLineException>(() => EmployeeFileParser.ParseLine(line));
+                Assert.Throws<MalformedLineException>(() => TextFileToEmployeeParser.ParseLine(line));
             }
         }
 
@@ -52,7 +52,7 @@ namespace BirthdayGreetingsKata.Tests.Solutions
                     Employee("test2", "2020/10/28", "a@a.it")
                 };
 
-                var employees = EmployeeFileParser.ParseLines(lines);
+                var employees = TextFileToEmployeeParser.ParseLines(lines);
 
                 Assert.Equal(2, employees.Count);
             }
@@ -66,7 +66,7 @@ namespace BirthdayGreetingsKata.Tests.Solutions
                     Employee("test2", "2020/10/28", "a@a.it")
                 };
 
-                var employees = EmployeeFileParser.ParseLines(lines);
+                var employees = TextFileToEmployeeParser.ParseLines(lines);
 
                 Assert.Equal(2, employees.Count);
             }
@@ -79,7 +79,7 @@ namespace BirthdayGreetingsKata.Tests.Solutions
                     Header()
                 };
 
-                var employees = EmployeeFileParser.ParseLines(lines);
+                var employees = TextFileToEmployeeParser.ParseLines(lines);
 
                 Assert.Empty(employees);
             }
@@ -94,7 +94,7 @@ namespace BirthdayGreetingsKata.Tests.Solutions
                     Employee("test", "2020/10/28", "a@a.it")
                 };
 
-                var employees = EmployeeFileParser.ParseLines(lines);
+                var employees = TextFileToEmployeeParser.ParseLines(lines);
 
                 Assert.Equal(1, employees.Count);
             }
